@@ -12,7 +12,7 @@ int main(int wordCount, char **str)
 			i = 0;
 			while (str[k][i])
 			{
-				std::cout<< (char)std::toupper(str[k][i]);
+				std::cout << (char)std::toupper(str[k][i]);
 				i++;
 			}
 			k++;

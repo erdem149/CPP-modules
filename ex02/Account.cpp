@@ -8,7 +8,7 @@ int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
 
-Account::Account(int initial_deposit ) //****************
+Account::Account(int initial_deposit )
 {
 	_accountIndex = getNbAccounts();
 	_amount = initial_deposit;
@@ -19,7 +19,7 @@ Account::Account(int initial_deposit ) //****************
 	_totalAmount += _amount;
 }
 
-Account::~Account( void ) //****************
+Account::~Account( void )
 {
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex <<";amount:"<<_amount<<";closed\n";
@@ -28,12 +28,6 @@ Account::~Account( void ) //****************
 int Account::getNbAccounts(void)
 {
 	return(_nbAccounts++);
-}
-
-int Account::getTotalAmount(void)
-{
-	std::cout << "getTotalAmount( void ) girdi \n";
-	return(0);
 }
 
 int Account::getNbDeposits(void)
@@ -46,18 +40,12 @@ int Account::getNbWithdrawals(void)
 	return(_totalNbWithdrawals++);
 }
 
-int		Account::checkAmount( void ) const
-{
-	std::cout << "checkAmount( void ) girdi \n";
-	return(1);
-}
-
 void	Account::_displayTimestamp(void)
 {
 	std::time_t	time;
 
 	time = std::time(NULL);
-	std::cout << "["
+	std::cout << std::setfill('0') << "["
 		<< std::setw(2) << 1900 + std::localtime(&time)->tm_year
 		<< std::setw(2) << 1 +  std::localtime(&time)->tm_mon
 		<< std::setw(2) << std::localtime(&time)->tm_mday << "_"

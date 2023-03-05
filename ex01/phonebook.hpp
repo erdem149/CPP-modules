@@ -31,6 +31,7 @@ class phoneBook
 	private:
 		contact user[8];
 	public:
+		int		user_count;
 		void add(void);
 		void search(void) const;
 };

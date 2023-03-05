@@ -6,6 +6,7 @@ void phoneBook::add(void)
 	if(usercount == 8)
 		usercount = 0;
 	this->user[usercount].assigment(usercount);
+	this->user_count++;
 	usercount++;
 }
 
@@ -32,6 +33,11 @@ void phoneBook::search(void) const
 			continue;
 		}
 		index_count = atoi(inputindex.c_str());
+		if(index_count >= 8 || index_count >= this->user_count || index_count < 0 )
+		{
+			std::cout << "You must be enter between 0-7 value! \n";
+			return;
+		}
 	}while(inputindex.empty());
 	this->user[index_count].getuserinfo();
 }
