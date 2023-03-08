@@ -10,6 +10,10 @@ int Account::_totalNbWithdrawals = 0;
 
 Account::Account(int initial_deposit )
 {
+	// _nbAccounts = 0;
+	// _totalAmount = 0;
+	// _totalNbDeposits = 0;
+	// _totalNbWithdrawals = 0;
 	_accountIndex = getNbAccounts();
 	_amount = initial_deposit;
 	_nbDeposits = 0;

@@ -11,3 +11,12 @@
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
+
+HumanA::HumanA(std::string name_tmp, Weapon &weapon_tmp) : name(name_tmp),  weapon(weapon_tmp)
+{
+}
+
+void HumanA::attack(void) const
+{
+	std::cout << this->name << " attacks with their " << this->weapon.getType() << std::endl;
+}

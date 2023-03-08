@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   file.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 17:58:40 by eryilmaz          #+#    #+#             */
-/*   Updated: 2023/03/05 17:58:41 by eryilmaz         ###   ########.tr	      */
+/*   Created: 2023/03/08 12:31:06 by eryilmaz          #+#    #+#             */
+/*   Updated: 2023/03/08 12:31:08 by eryilmaz         ###   ########.tr	      */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include <iostream>
+#include <fstream>
 
-
-Weapon::Weapon(std::string type)
+class file
 {
-	this->setType(type);
-}
-
-void Weapon::setType(std::string newType)
-{
-	this->type = newType;
-}
-
-const std::string &Weapon::getType(void)
-{
-	return this->type;
-}
+private:
+	std::ifstream read;
+	std::ofstream write;
+	std::string readline;
+	std::string file_name;
+	std::string file_search_word;
+	std::string file_replace_word;
+public:
+	file(char **str);
+	std::string file_replace(void);
+	void file_copy(void);
+};

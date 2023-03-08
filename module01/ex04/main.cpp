@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/05 17:58:40 by eryilmaz          #+#    #+#             */
-/*   Updated: 2023/03/05 17:58:41 by eryilmaz         ###   ########.tr	      */
+/*   Created: 2023/03/08 12:12:53 by eryilmaz          #+#    #+#             */
+/*   Updated: 2023/03/08 12:12:58 by eryilmaz         ###   ########.tr	      */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-
-
-Weapon::Weapon(std::string type)
+#include "file.hpp"
+int main(int count, char **str)
 {
-	this->setType(type);
-}
-
-void Weapon::setType(std::string newType)
-{
-	this->type = newType;
-}
-
-const std::string &Weapon::getType(void)
-{
-	return this->type;
+	if(count == 4)
+	{
+		file file_tmp(str);
+		file_tmp.file_copy();
+	}
+	else
+		std::cout << "Used: <filename> <to_file> <replace>" << std::endl;
 }
