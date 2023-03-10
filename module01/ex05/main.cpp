@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 12:31:06 by eryilmaz          #+#    #+#             */
-/*   Updated: 2023/03/08 12:31:08 by eryilmaz         ###   ########.tr	      */
+/*   Created: 2023/03/10 14:38:30 by eryilmaz          #+#    #+#             */
+/*   Updated: 2023/03/10 14:38:42 by eryilmaz         ###   ########.tr	      */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
+#include "Harl.hpp"
 
-class file
+int main(void)
 {
-private:
-	std::ifstream read;
-	std::ofstream write;
-	std::string readline;
-	std::string file_name;
-	std::string file_search_word;
-	std::string file_replace_word;
-public:
-	file(char **str);
-	void file_replace(void);
-	void file_copy(void);
-};
+	std::string input;
+    Harl        harl;
+
+    do
+    {
+        std::cout << "Enter a level: ";
+        std::cin >> input;
+        harl.complain(input);
+    } while (input.compare("exit"));
+
+    return EXIT_SUCCESS;
+}

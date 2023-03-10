@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.hpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 12:31:06 by eryilmaz          #+#    #+#             */
-/*   Updated: 2023/03/08 12:31:08 by eryilmaz         ###   ########.tr	      */
+/*   Created: 2023/03/10 15:26:58 by eryilmaz          #+#    #+#             */
+/*   Updated: 2023/03/10 15:26:59 by eryilmaz         ###   ########.tr	      */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
-#include <fstream>
 
-class file
+class Harl
 {
 private:
-	std::ifstream read;
-	std::ofstream write;
-	std::string readline;
-	std::string file_name;
-	std::string file_search_word;
-	std::string file_replace_word;
+	void debug( void );
+	void info(void);
+	void warning(void);
+	void error( void );
 public:
-	file(char **str);
-	void file_replace(void);
-	void file_copy(void);
+	void complain( std::string level );
 };
+
+typedef void (Harl::*t_func) ( void );

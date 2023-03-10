@@ -21,21 +21,29 @@ file::file(char **str): file_name(str[1]), file_search_word(str[2]), file_replac
 		return;
 	}
 	this->write.open(this->file_name + "replace");
-	if(!this->read.is_open())
+	if(!this->write.is_open())
 	{
 		std::cerr << this->file_name <<" dosya açılmıyor veya oluşturulamadı" << std::endl;
 		return;
 	}
 }
 
-std::string file::file_replace()
+void file::file_replace()
 {
 	int i = 0;
-	int k = 0;
+	int length_search_word = this->file_search_word.length();
 	while (this->readline[i])
 	{
-		// devam edecek ......
-		i++;
+		if (!this->readline.compare(i, length_search_word, this->file_search_word))
+		{
+			this->write << this->file_replace_word;
+			i += length_search_word;
+		}
+		else
+		{
+			this->write << this->readline[i];
+			i++;
+		}
 	}
 }
 
@@ -43,7 +51,8 @@ void file::file_copy(void)
 {
 	while (std::getline(this->read, this->readline))
 	{
-		this->write << this->file_replace() << std::endl;
+		this->file_replace();
+		this->write << std::endl;
 	}
 }
 

@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   file.hpp                                           :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/08 12:31:06 by eryilmaz          #+#    #+#             */
-/*   Updated: 2023/03/08 12:31:08 by eryilmaz         ###   ########.tr	      */
+/*   Created: 2023/03/10 15:26:32 by eryilmaz          #+#    #+#             */
+/*   Updated: 2023/03/10 15:26:37 by eryilmaz         ###   ########.tr	      */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <fstream>
+#include "Harl.hpp"
 
-class file
+int main(int word_count, char **str)
 {
-private:
-	std::ifstream read;
-	std::ofstream write;
-	std::string readline;
-	std::string file_name;
-	std::string file_search_word;
-	std::string file_replace_word;
-public:
-	file(char **str);
-	void file_replace(void);
-	void file_copy(void);
-};
+    if(word_count == 2)
+    {
+        Harl    harl;
+
+        harl.complain(str[1]);
+    }
+    else
+        std::cout << "Usage: ./harlFilter \"level\"" << std::endl;
+    return EXIT_SUCCESS;
+}
