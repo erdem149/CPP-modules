@@ -1,26 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-khni <ael-khni@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 18:44:56 by ael-khni          #+#    #+#             */
-/*   Updated: 2022/07/24 12:23:33 by ael-khni         ###   ########.fr       */
+/*   Created: 2023/03/28 01:37:28 by eryilmaz          #+#    #+#             */
+/*   Updated: 2023/03/28 01:37:29 by eryilmaz         ###   ########.tr	      */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+#ifndef FRAGTRAP_HPP
+# define FRAGTRAP_HPP
+# include "ClapTrap.hpp"
 
-int main( void )
+class FragTrap : public ClapTrap
 {
-    ScavTrap ash( "Ash" );
-    ScavTrap ash2( ash );
+private:
 
-    ash.attack( "the air" );
-    ash.takeDamage( 10 );
-    ash.beRepaired( 10 );
-    ash.guardGate();
+public:
+	FragTrap(std::string name);
+	~FragTrap(void);
+	void highFive(void);
+};
 
-    return 0;
-}
+#endif

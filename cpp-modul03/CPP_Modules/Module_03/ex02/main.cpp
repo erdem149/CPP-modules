@@ -22,5 +22,5 @@ int main( void )
     ash.beRepaired( 10 );
     ash.highFive();
 
-    return EXIT_SUCCESS;
+    return 0;
 }

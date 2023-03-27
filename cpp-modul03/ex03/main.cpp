@@ -3,24 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-khni <ael-khni@student.1337.ma>        +#+  +:+       +#+        */
+/*   By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/07/23 18:44:56 by ael-khni          #+#    #+#             */
-/*   Updated: 2022/07/24 12:23:33 by ael-khni         ###   ########.fr       */
+/*   Created: 2023/03/23 01:36:08 by eryilmaz          #+#    #+#             */
+/*   Updated: 2023/03/23 01:36:10 by eryilmaz         ###   ########.tr	      */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ScavTrap.hpp"
+
+#include "DiamondTrap.hpp"
 
 int main( void )
 {
-    ScavTrap ash( "Ash" );
-    ScavTrap ash2( ash );
+    DiamondTrap ash( "Ash" );
+    DiamondTrap ash2( ash );
+    DiamondTrap ash3(".");
+
+    ash.whoAmI();
+    ash2.whoAmI();
+    ash3 = ash;
+    ash3.whoAmI();
 
     ash.attack( "the air" );
     ash.takeDamage( 10 );
     ash.beRepaired( 10 );
-    ash.guardGate();
 
     return 0;
 }
