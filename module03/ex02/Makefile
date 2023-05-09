@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/15 14:05:08 by eryilmaz          #+#    #+#              #
-#    Updated: 2023/03/15 14:05:09 by eryilmaz         ###   ########.tr	       #
+#    Created: 2023/03/23 01:33:03 by eryilmaz          #+#    #+#              #
+#    Updated: 2023/03/23 01:33:04 by eryilmaz         ###   ########.tr	       #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Fixed
+NAME	= fragtrap
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98

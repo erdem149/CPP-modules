@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/03/15 14:05:08 by eryilmaz          #+#    #+#              #
-#    Updated: 2023/03/15 14:05:09 by eryilmaz         ###   ########.tr	       #
+#    Created: 2023/05/09 13:32:51 by eryilmaz          #+#    #+#              #
+#    Updated: 2023/05/09 13:32:52 by eryilmaz         ###   ########.tr	       #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= Fixed
+NAME	= animal
 
 CC		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98
@@ -28,7 +28,7 @@ all: $(NAME)
 
 $(NAME):
 	@printf "$(CURSIVE)$(GRAY) 	- Compiling $(NAME)... $(RESET)\n"
-	@ $(CC) $(FLAGS) *.cpp -o $(NAME)
+	@ $(CC) $(FLAGS) ./src/*.cpp -o $(NAME)
 	@printf "$(GREEN)    - Executable ready.\n$(RESET)"
 
 clean:
