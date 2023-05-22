@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: eryilmaz <eryilmaz@student.42kocaeli.com.  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/09 13:32:51 by eryilmaz          #+#    #+#              #
-#    Updated: 2023/05/09 13:32:52 by eryilmaz         ###   ########.tr	       #
+#    Created: 2023/05/22 16:14:06 by eryilmaz          #+#    #+#              #
+#    Updated: 2023/05/22 16:14:08 by eryilmaz         ###   ########.tr	       #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= animal
+NAME	= brain
 CC		= c++
 FLAGS	=  -std=c++98 -Wall -Wextra -Werror
 RM		= rm -rf
@@ -41,3 +41,5 @@ fclean:
 re: clean all
 
 .PHONY: all clean re
+
+
