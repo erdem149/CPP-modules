@@ -9,7 +9,11 @@
 /*   Updated: 2023/05/22 22:53:31 by eryilmaz         ###   ########.tr	      */
 /*                                                                            */
 /* ************************************************************************** */
-#include "amateria.hpp"
+#include "../lib/AMateria.hpp"
+#include "../lib/MateriaSource.hpp"
+#include "../lib/Ice.hpp"
+#include "../lib/Cure.hpp"
+#include "../lib/Character.hpp"
 
 int main()
 {
