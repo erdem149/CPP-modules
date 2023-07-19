@@ -133,10 +133,11 @@ int ScalarConverter::is_char(std::string str)
 
 void ScalarConverter::print_variable(int status, std::string str)
 {
+    std::cout<<status <<std::endl;
     switch(status)
     {
         case CHAR:
-             _c = str.c_str()[0];
+            _c = str.c_str()[0];
             _n = static_cast<int>(_c);
             _f = static_cast<float>(_c);
             _d = static_cast<double>(_c);
@@ -147,14 +148,20 @@ void ScalarConverter::print_variable(int status, std::string str)
             _c = static_cast<char>(_f);
             _n = static_cast<int>(_f);
             _d = static_cast<double>(_f);
-            print_variable(WRITE, str);
+            if(str.c_str()[str.length()-1]=='0')
+                print_variable(WRITE_PRIVATE, str);
+            else
+                print_variable(WRITE, str);
             break;
         case DOUBLE:
             _d = std::strtod(str.c_str(), NULL);
             _c = static_cast<char>(_d);
             _n = static_cast<int>(_d);
             _f = static_cast<float>(_d);
-            print_variable(WRITE, str);
+            if(str.c_str()[str.length()-1]=='0')
+                print_variable(WRITE_PRIVATE, str);
+            else
+                print_variable(WRITE, str);
             break;
         case INT:
             _n = std::atoi(str.c_str());
@@ -175,8 +182,21 @@ void ScalarConverter::print_variable(int status, std::string str)
             else
                 std::cout <<"impossible"<<std::endl;
             std::cout <<"int: "<< _n<< std::endl;
-            std::cout <<"float: "<< _f<< std::endl;
+            std::cout <<"float: "<< _f<<"f"<< std::endl;
             std::cout <<"double: "<< _d<< std::endl;
+            break;
+        case WRITE_PRIVATE:
+            std::cout <<"char: ";
+            if(std::isprint(_c))
+                std::cout <<_c<<std::endl;
+            else if(_c >= 0 && _c < 127)
+                std::cout <<"Non displayable"<<std::endl;
+            else
+                std::cout <<"impossible"<<std::endl;
+            std::cout <<"int: "<< _n<< std::endl;
+            std::cout <<"float: "<< _f<<".0f"<< std::endl;
+            std::cout <<"double: "<< _d<<".0"<<std::endl;
+            break;
     }
 }
 

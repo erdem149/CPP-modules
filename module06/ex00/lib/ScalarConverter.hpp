@@ -14,6 +14,7 @@
 # define CONVERTER_HPP
 # define ERROR 404
 # define WRITE 101
+# define WRITE_PRIVATE 102
 #include <iostream>
 #include <stdlib.h>
 #include <fstream>

@@ -36,7 +36,7 @@ int	main()
 
 	delete data;
 
-	std::string b = "ahmet";
+	std::string b = "erdem";
 	unsigned long a = reinterpret_cast<unsigned long>(&b);
 	std::cout << a;
 	char *c = reinterpret_cast<char*>(a);
