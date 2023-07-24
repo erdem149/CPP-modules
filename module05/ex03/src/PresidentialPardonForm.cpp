@@ -18,15 +18,15 @@ std::string const PresidentialPardonForm:: Name = std::string("Presidential Pard
 PresidentialPardonForm::PresidentialPardonForm() {}
 
 PresidentialPardonForm::PresidentialPardonForm( std::string target ):
-	Form(PresidentialPardonForm::Name, 25, 5), _target(target) {}
+	AForm(PresidentialPardonForm::Name, 25, 5), _target(target) {}
 
-PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ): Form(src) {}
+PresidentialPardonForm::PresidentialPardonForm( const PresidentialPardonForm & src ): AForm(src) {}
 
 PresidentialPardonForm::~PresidentialPardonForm() {}
 
 PresidentialPardonForm & PresidentialPardonForm::operator=( const PresidentialPardonForm & rhs )
 {
-	Form::operator=(rhs);
+	AForm::operator=(rhs);
 	return (*this);
 }
 

@@ -133,7 +133,6 @@ int ScalarConverter::is_char(std::string str)
 
 void ScalarConverter::print_variable(int status, std::string str)
 {
-    std::cout<<status <<std::endl;
     switch(status)
     {
         case CHAR:
@@ -149,6 +148,8 @@ void ScalarConverter::print_variable(int status, std::string str)
             _n = static_cast<int>(_f);
             _d = static_cast<double>(_f);
             if(str.c_str()[str.length()-1]=='0')
+                print_variable(WRITE_PRIVATE, str);
+            else if(str.c_str()[str.length()-2]=='0' && str.c_str()[str.length()-1]=='f')
                 print_variable(WRITE_PRIVATE, str);
             else
                 print_variable(WRITE, str);
@@ -168,7 +169,7 @@ void ScalarConverter::print_variable(int status, std::string str)
             _c = static_cast<char>(_n);
             _d = static_cast<double>(_n);
             _f = static_cast<float>(_n);
-            print_variable(WRITE, str);
+            print_variable(WRITE_PRIVATE, str);
             break;
         case LITERALS:
             print_literals(str);

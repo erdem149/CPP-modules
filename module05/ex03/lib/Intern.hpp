@@ -11,27 +11,33 @@
 /* ************************************************************************** */
 
 #ifndef INTERN_HPP
-#define INTERN_HPP
+ #define INTERN_HPP
 
+#include "AForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-class Intern
-{
-	public:
-		Intern();
-		Intern( const Intern & src );
-		~Intern();
-		Intern & operator = ( const Intern & rhs );
-		class FormNotFound: public std::exception
-		{
-			virtual	const char * what() const throw();
-		};
-		Form*	ShrubberyCreation( std::string target );
-		Form*	RobotomyRequest( std::string target );
-		Form*	PresidentialPardon( std::string target );
-		Form*	makeForm( std::string Type, std::string target );
+class Intern{
+
+public:
+	/* Constructor & Destructor */
+	Intern( void ); // default Constructor
+	Intern( const Intern &ref ); // copy Constructor
+	~Intern( void ); // destructor
+
+	/* Basic Operators */
+	Intern &operator=( const Intern &ref ); // copy assignment operator
+
+	/* Main Memeber Functions */
+	AForm *makeForm( std::string formName, std::string targetName );
+
+	/* Exceptions */
+	class InternCantCreatedForm : public std::exception{
+		public:
+			virtual const char *what(void) const throw();
+	};
 };
 
 #endif
+

@@ -74,7 +74,7 @@ void	Bureaucrat::GardeIncrement()
 	this->_grade--;
 }
 
-void	Bureaucrat::singForm( Form & form )
+void	Bureaucrat::singForm( AForm & form )
 {
 	if (this->_grade <= form.getReqGradeToSign())
 		std::cout << this->_name << " sings " << form.getName() << std::endl;
@@ -83,11 +83,12 @@ void	Bureaucrat::singForm( Form & form )
 			<< form.getReqGradeToSign() << " to be signed" << std::endl;
 }
 
-void	Bureaucrat::executeForm( Form const & form )
+void	Bureaucrat::executeForm( AForm const & form )
 {
 	if (form.getReqGradeToExecute() < this->_grade)
 		throw Bureaucrat::GradeTooLowException();
-	std::cout << this->_name << " executes " << form.getName() << std::endl;
+	std::cout << this->_name << " executes " << form
+	.getName() << std::endl;
 }
 
 std::ostream& operator<<( std::ostream& os, Bureaucrat& brc )

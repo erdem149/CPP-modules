@@ -19,7 +19,7 @@ int main()
 	try
 	{
 		Intern someRandomIntern;
-		Form* rrf;
+		AForm* rrf;
 		Bureaucrat					worker("worker", 7);
 
 		rrf = someRandomIntern.makeForm("robotomy request", "Bender");
@@ -38,7 +38,7 @@ int main()
 	try
 	{
 		Intern someRandomIntern;
-		Form* rrf;
+		AForm* rrf;
 		Bureaucrat					worker("worker", 7);
 
 		rrf = someRandomIntern.makeForm("Some Random Form", "Bender");

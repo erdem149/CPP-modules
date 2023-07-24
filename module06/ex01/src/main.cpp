@@ -19,7 +19,7 @@ int	main()
 	data->y = 42.42f;
 
 	//unsigned long ptrVal = (unsigned long)data; // Bu kullanım yerine reinterpret_cast kullanmak daha efektiftir. Kod bloğu genişlediğinde tip dönüşümlerinin kontrolü daha kolay yapılır.  (örn ctrl + F ile reinterpret_cast'i aratmak)
-	unsigned long ptrVal = reinterpret_cast<unsigned long>(data);
+	long ptrVal = reinterpret_cast<long>(data);
 	std::cout << "Different Use: " << ptrVal << std::endl;
 
 	//Data *pointer = (Data* )ptrVal; // Bu kullanım yerine reinterpret_cast kullanmak daha efektiftir. Kod bloğu genişlediğinde tip dönüşümlerinin kontrolü daha kolay yapılır. (örn ctrl + F ile reinterpret_cast'i aratmak)

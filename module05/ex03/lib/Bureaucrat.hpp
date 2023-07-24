@@ -12,10 +12,10 @@
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include <string>
 #include <iostream>
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -41,8 +41,8 @@ class Bureaucrat
 		int				getGrage() const;
 		void			GardeIncrement();
 		void			GradeDecrement();
-		void			singForm( Form & form );
-		void			executeForm( Form const & form );
+		void			singForm( AForm & form );
+		void			executeForm( AForm const & form );
 };
 
 std::ostream& operator << ( std::ostream& os, Bureaucrat& brc );

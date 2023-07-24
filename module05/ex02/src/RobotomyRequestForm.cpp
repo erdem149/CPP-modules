@@ -18,15 +18,15 @@ std::string const RobotomyRequestForm::Name = std::string("Robotomy Request");
 RobotomyRequestForm::RobotomyRequestForm() {}
 
 RobotomyRequestForm::RobotomyRequestForm( std::string target ):
-	Form(RobotomyRequestForm::Name, 72, 45), _target(target) {}
+	AForm(RobotomyRequestForm::Name, 72, 45), _target(target) {}
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
 
-RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ): Form(src) {}
+RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm & src ): AForm(src) {}
 
 RobotomyRequestForm & RobotomyRequestForm::operator=( const RobotomyRequestForm & rhs )
 {
-	Form::operator=(rhs);
+	AForm::operator=(rhs);
 	return (*this);
 }
 

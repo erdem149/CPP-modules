@@ -18,15 +18,15 @@ std::string const ShrubberyCreationForm::Name = std::string("Shrubbery Creation"
 ShrubberyCreationForm::ShrubberyCreationForm() {}
 
 ShrubberyCreationForm::ShrubberyCreationForm( std::string target ):
-	Form(ShrubberyCreationForm::Name, 145, 137), _target(target) {}
+	AForm(ShrubberyCreationForm::Name, 145, 137), _target(target) {}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
-ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ): Form(src) {}
+ShrubberyCreationForm::ShrubberyCreationForm( const ShrubberyCreationForm & src ): AForm(src) {}
 
 ShrubberyCreationForm & ShrubberyCreationForm::operator=( const ShrubberyCreationForm & rhs )
 {
-	Form::operator=(rhs);
+	AForm::operator=(rhs);
 	return (*this);
 }
 

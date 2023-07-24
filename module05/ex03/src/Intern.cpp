@@ -12,46 +12,54 @@
 
 #include "../lib/Intern.hpp"
 
-Intern::Intern() {}
+Intern::Intern( void ){
+	std::cout <<  "Intern Default Constructor Called"  << std::endl;
+}
 
-Intern::Intern( const Intern & src ) { *this = src; }
+Intern::Intern( const Intern &ref ){
+	std::cout <<  "Intern Copy Constructor Called"  << std::endl;
+	*this = ref;
+}
 
-Intern::~Intern() {}
+Intern::~Intern(void){
+	std::cout <<  "Intern Destructor Called"  << std::endl;
+}
 
-Intern & Intern::operator=( const Intern & rhs )
-{
-	if (this == &rhs)
-		return (*this);
+Intern &Intern::operator=( const Intern &ref ){
+	std::cout <<  "Intern Assignment Operator Called"  << std::endl;
+	if (this != &ref)
+	{
+		*this = ref;
+	}
 	return (*this);
 }
 
-const char* Intern::FormNotFound::what() const throw()
-{
-	return ("InterException: Form Not Found!");
+AForm *Intern::makeForm( std::string formName, std::string targetName ){
+
+	std::string form_name_list[] = {"robotomy request", "presidential pardon", "shrubbery creation"};
+	int index = 0;
+	int lenght = form_name_list->length() - 1;
+	while (index < lenght && (form_name_list[index].empty() == false) && (form_name_list[index]).compare(formName))
+		index++;
+	AForm *ret;
+	switch (index)
+	{
+		case 0:
+			ret = new RobotomyRequestForm(targetName);
+			break;
+		case 1:
+			ret = new PresidentialPardonForm(targetName);
+			break;
+		case 2:
+			ret = new ShrubberyCreationForm(targetName);
+			break;
+		default:
+			throw ( Intern::InternCantCreatedForm() );
+	}
+	std::cout <<  "Intern creates " << ret->getName() << std::endl;
+	return (ret);
 }
 
-Form*	Intern::ShrubberyCreation( std::string target )
-{ return (new ShrubberyCreationForm(target));}
-
-Form* Intern::RobotomyRequest( std::string target )
-{ return (new RobotomyRequestForm(target));}
-
-Form* Intern::PresidentialPardon( std::string target )
-{ return (new PresidentialPardonForm(target));}
-
-Form*	Intern::makeForm( std::string Type, std::string target )
-{
-	std::string	Forms[] = { "shrubbery creation", "robotomy request", "presidential pardon" };
-	Form* (Intern:: *form[]) (std::string target) = {
-		form[0] = &Intern::ShrubberyCreation,
-		form[1] = &Intern::RobotomyRequest,
-		form[2] = &Intern::PresidentialPardon
-	};
-	for(int i = 0; i < 3; i++)
-		if(Forms[i] == Type)
-		{
-			std::cout << "Intern creates " << Type << std::endl;
-			return ((this->*form[i])(target));
-		}
-	throw Intern::FormNotFound();
+const char *Intern::InternCantCreatedForm::what() const throw(){
+	return (  "Intern can't created form because there is no form this type!"  );
 }
