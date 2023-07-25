@@ -15,7 +15,6 @@
 # include <iostream>
 
 template<typename E>
-
 void swap(E &variable,E &variable1)
 {
 	E tmp = variable1;
