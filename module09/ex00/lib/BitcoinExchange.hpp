@@ -15,28 +15,26 @@
 # include <iostream>
 # include <map>
 # include <fstream>
-# include <sstream>
 # include <climits>
 # include <algorithm>
+
 
 class Bitcoin
 {
 
 private:
 	static std::string						_input;
-	static std::string						_inputFirstLine;
-	static std::string						_data;
-	static std::string						_dataFormat;
-	static std::string						_dataFirstLine;
-	static std::string						_delimiterPosData;
-	static std::string						_delimiterPosInput;
-	static std::map<std::string, double>	_arr;
+	static std::map<std::string, double>	_data;
 
 public:
 	static void			checkArg( int index, char **str );
-	static void			checkFile( std::string file_name);
-	static void			setContainer(void);
-	static void			printInputExchange( void );
+	static void			checkFile( std::string variable);
+	static void			setContainer_data(void);
+	static bool			DateCheck(std::string date);
+	static bool 		checkvalue(std::string date);
+	static void 		error_w(std::string str, std::string str2);
+	static double		setContainer_calculate(std::string date);
+
 	class NotEnoughtInputs : public std::exception
 	{
 		public:
@@ -49,7 +47,7 @@ public:
 	{
 		public:
 			virtual const char *what(void) const throw(){
-				return ( RED "Error: too large a number." END );
+				return ( RED "Error: could not open file." END );
 			}
 	};
 
@@ -70,6 +68,13 @@ public:
 			}
 	};
 
-
+	class EnteredValuesAreIncorrectData : public std::exception
+	{
+		public:
+			virtual const char *what(void) const throw()
+			{
+				return ( RED "Error: Date File Entered Values Are Incorrect." END );
+			}
+	};
 };
 #endif

@@ -5,8 +5,7 @@ int main(int index, char **str)
 	try
 	{
 		Bitcoin::checkArg(index, str);
-		Bitcoin::setContainer();
-		Bitcoin::printInputExchange();
+		Bitcoin::setContainer_data();
 	}
 	catch(std::exception& e)
 	{
