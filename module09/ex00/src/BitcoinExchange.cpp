@@ -24,20 +24,35 @@ bool Bitcoin::DateCheck(std::string date)
 	std::string date_day;
 	std::string date_month;
 	std::string date_year;
-	size_t delimiterPos;
+	size_t pos1;
+	size_t pos2;
 
-	delimiterPos = date.find("-");
-  	date_year = date.substr(0, delimiterPos);
-  	delimiterPos = date.find("-", delimiterPos + 1);
-  	date_month = date.substr(delimiterPos + 1, delimiterPos - delimiterPos - 1);
-  	date_day = date.substr(delimiterPos + 1);
+	pos1 = date.find("-");
+    date_year = date.substr(0, pos1);
+    pos2 = date.find("-", pos1 + 1);
+    date_month = date.substr(pos1 + 1, pos2 - pos1 - 1);
+    date_day = date.substr(pos2 + 1);
 	if(date_year.length() == 4 || date_month.length() == 2 || date_day.length() == 2)
 	{
 		if(std::atoi(date_year.c_str()) <= 2008)
 			error_w("Error: bad input => ", date);
 		else if(std::atoi(date_month.c_str()) > 12 || std::atoi(date_month.c_str()) < 1)
-			error_w("Error: bad input => ", date);
+			error_w("Error: bad input => *", date);
 		else if(std::atoi(date_day.c_str()) > 31 || std::atoi(date_day.c_str()) < 1 )
+			error_w("Error: bad input => ", date);
+		else if(std::atoi(date_year.c_str()) == 2009 && std::atoi(date_month.c_str()) == 1 && std::atoi(date_day.c_str()) == 1)
+			error_w("Error: bad input => ", date);
+		else if(std::atoi(date_year.c_str()) == 2022)
+		{
+			if(std::atoi(date_month.c_str()) == 3)
+			{
+				if(std::atoi(date_day.c_str()) > 29)
+					error_w("Error: bad input => ", date);
+			}
+			else if(std::atoi(date_month.c_str()) > 3)
+				error_w("Error: bad input => ", date);
+		}
+		else if(std::atoi(date_year.c_str()) > 2022)
 			error_w("Error: bad input => ", date);
 		else
 			return (true);
@@ -56,6 +71,7 @@ void Bitcoin::checkFile(std::string variable)
 	std::string tmp_btc_value;
 
 	Bitcoin::setContainer_data();
+
 	read.open(variable.c_str());
 	if(!read.is_open())
 	{
@@ -83,7 +99,7 @@ void Bitcoin::checkFile(std::string variable)
 		tmp_btc_value = variable.substr(delimiterPos, variable.length());
 		delimiterPos = tmp_btc_value.find(" ") + 1;
 		tmp_btc_value = tmp_btc_value.substr(delimiterPos, tmp_btc_value.length());
-		if(Bitcoin::DateChack(date) == false)
+		if(Bitcoin::DateCheck(date) == false)
 			goto next;
 		if(!tmp_btc_value.compare("|"))
 		{
@@ -140,12 +156,7 @@ bool Bitcoin::checkvalue(std::string date)
 	m = Bitcoin::_data.find(date);
 	if(m == Bitcoin::_data.end())
 	{
-		m = --Bitcoin::_data.upper_bound(date);
-		if(m == --Bitcoin::_data.begin())
-		{
-			error_w("Error: bad input => ", date);
-			return (false);
-		}
+		m = Bitcoin::_data.upper_bound(date);
 	}
 	return (true);
 }

@@ -17,11 +17,7 @@
 # include <iostream>
 # include <list>
 # include <vector>
-# include <algorithm>
 # include <sstream>
-# include <sys/time.h>
-#include <iomanip>
-#include <ctime>
 
 class PmergeMe{
 
@@ -37,6 +33,7 @@ public:
 	static double		measureTime( clock_t start, clock_t end );
 
 	/* List methods */
+
 	static void						sortListContainer( void );
 	static void						ListMergeInsertSorting( std::list<int>& list );
 	static void						ListMergeSorting( std::list<int>& list, std::list<int>& left, std::list<int>& right );

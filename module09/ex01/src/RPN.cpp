@@ -23,6 +23,8 @@ void	RPN::setContesetContainer(void)
 			_arr.push(_input[i] - '0');
 		else if( _input[i] != ' ' && _allowedOperators.find(_input[i]) != std::string::npos)
 		{
+			if (_arr.size() < 2)
+				throw (NotEnoughtInputs());
 			if (_input[i] == '+')
 			{
 				int a = _arr.top();

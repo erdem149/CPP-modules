@@ -15,8 +15,6 @@
 # include <iostream>
 # include <map>
 # include <fstream>
-# include <climits>
-# include <algorithm>
 
 
 class Bitcoin

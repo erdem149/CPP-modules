@@ -14,10 +14,7 @@
 /*----------------------------------*/
 
 # include <iostream>
-# include <algorithm>
 # include <stack>
-# include <sstream>
-# include <string.h>
 
 class RPN{
 
